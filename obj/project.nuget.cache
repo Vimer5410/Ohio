@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ExxM7LPtVhdvxD7G9Ndm+za7sw0ca4qUlTiKWCGgr/2lgIpYC8vcJTvDl//FzXk6PacKf0VL7hsLT/Ir15c9YQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Gleb\\source\\repos\\WPFTestDesign\\WPFTestDesign.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Gleb\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
+    "C:\\Users\\Gleb\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
+    "C:\\Users\\Gleb\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512"
+  ],
+  "logs": []
+}
