@@ -29,7 +29,8 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Column="0" Grid.Row="0" Background="#2a2a2a">
-                <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Center" FontFamily="Arial Black" Foreground="#037e82" FontSize="25">Ohio</TextBlock>
+                <TextBlock Text="V-0.0.2" Foreground="#a37cb3"></TextBlock>
+                <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontFamily="Arial Black" Foreground="#037e82" FontSize="25">Ohio</TextBlock>
             </StackPanel>
 
 
@@ -47,11 +48,62 @@
            
 
             <Grid x:Name="NotesBox" Visibility="Hidden" Grid.Column="1" Grid.Row="1">
-                <DataGrid x:Name="Notesdg" FontWeight="Bold" FontSize="15" Margin="10" AutoGenerateColumns="False">
+                <DataGrid x:Name="Notesdg" MinRowHeight="30" FontWeight="Bold" Foreground="#e5e5e5" Background="Transparent" FontSize="15" Margin="10" AutoGenerateColumns="False">
+                    
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#1a1a1a"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                        
+                    </DataGrid.CellStyle>
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Path=CreationDate}" Header="Date" Width="140" IsReadOnly="True"/>
-                        <DataGridCheckBoxColumn Binding="{Binding Path=isDone}" Header="Done" Width="80" IsReadOnly="False"/>
-                        <DataGridTextColumn Binding="{Binding Path=Text}" Header="Task" Width="*" IsReadOnly="False"/>
+                        
+                        
+                        <DataGridTextColumn Binding="{Binding Path=CreationDate}" Header="Date" Width="160" IsReadOnly="True">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.VerticalAlignment" Value="Bottom"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Foreground" Value="#e5e5e5"/>
+                                    <Setter Property="Background" Value="Transparent"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+
+
+                        <DataGridCheckBoxColumn Binding="{Binding Path=isDone}" Header="Done" Width="80" IsReadOnly="False">
+                            <DataGridCheckBoxColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Foreground" Value="#e5e5e5"/>
+                                    <Setter Property="Background" Value="Transparent"/>
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                </Style>
+                            </DataGridCheckBoxColumn.HeaderStyle>
+                        </DataGridCheckBoxColumn>
+
+
+                        <DataGridTextColumn Binding="{Binding Path=Text}" Foreground="#e5e5e5" Header="Task" Width="*" IsReadOnly="False">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style>
+                                    <Setter Property="FrameworkElement.VerticalAlignment" Value="Bottom"/>
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="Foreground" Value="#e5e5e5"/>
+                                    <Setter Property="Background" Value="Transparent"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                        </DataGridTextColumn>
+                        
+                        
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
