@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WPFTestDesign.Models
 {
-    class TodoModel
+    class TodoModel:INotifyPropertyChanged
     {
         private string _text;
         private bool _isDone;
@@ -19,7 +20,15 @@ namespace WPFTestDesign.Models
         public bool IsDone
         {
             get { return _isDone; }
-            set { _isDone = value; }
+            set 
+            {
+                if (_isDone == value)
+                    return;
+                _isDone = value;
+                OnPropertyChanged("IsDone");
+
+
+            }
         }
 
 
@@ -28,10 +37,24 @@ namespace WPFTestDesign.Models
         public string Text
         {
             get { return _text; }
-            set { _text = value; }
+            set 
+            {
+                if (_text == value)
+                    return;
+                _text = value;
+                OnPropertyChanged("Text");
+            }
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
 
-
+        protected virtual void OnPropertyChanged(string propertyName="")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+            
+        }
     }
 }

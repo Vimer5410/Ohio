@@ -63,7 +63,7 @@
                     <DataGrid.Columns>
                         
                         
-                        <DataGridTextColumn Binding="{Binding Path=CreationDate}" Header="Date" Width="160" IsReadOnly="True">
+                        <DataGridTextColumn Binding="{Binding Path=CreationDate}" Header="Date" Width="170" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style>
                                     <Setter Property="FrameworkElement.VerticalAlignment" Value="Bottom"/>
@@ -78,7 +78,7 @@
                         </DataGridTextColumn>
 
 
-                        <DataGridCheckBoxColumn Binding="{Binding Path=isDone}" Header="Done" Width="80" IsReadOnly="False">
+                        <DataGridCheckBoxColumn Binding="{Binding Path=isDone,UpdateSourceTrigger=PropertyChanged}" Header="Done" Width="80" IsReadOnly="False">
                             <DataGridCheckBoxColumn.HeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="Foreground" Value="#e5e5e5"/>

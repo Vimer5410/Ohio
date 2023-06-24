@@ -12,15 +12,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf;
-using System.ComponentModel;
+
 using WPFTestDesign.Models;
+using Ohio.InOut;
 
 namespace WPFTestDesign;
 
 
 public partial class MainWindow : Window
 {
+    private readonly string PATH = $"{Environment.CurrentDirectory}\\todoDataList.json";
     private BindingList<TodoModel> _todoData;
+    private FileIOServises _fileIOServises;
+    
     public MainWindow()
     {
         InitializeComponent();                 
@@ -78,14 +82,39 @@ public partial class MainWindow : Window
 
     private void Main_Loaded(object sender, RoutedEventArgs e)
     {
-
-        _todoData = new BindingList<TodoModel>()
+        _fileIOServises = new FileIOServises(PATH);
+      
+        try
         {
-            new TodoModel() {Text="1"}
-        };
+            _todoData = _fileIOServises.LoadData();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+            Close();
+        }
 
         Notesdg.ItemsSource = _todoData;
 
+        _todoData.ListChanged += _todoData_ListChanged;
+
+    }
+
+    private void _todoData_ListChanged(object sender, ListChangedEventArgs e)
+    {
+        if (e.ListChangedType==ListChangedType.ItemAdded|| e.ListChangedType == ListChangedType.ItemDeleted|| e.ListChangedType == ListChangedType.ItemChanged)
+        {
+            try
+            {
+                _fileIOServises.SaveData(sender);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                this.Close();
+            }
+        }
+        
     }
 }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gleb\\source\\repos\\WPFTestDesign\\WPFTestDesign.csproj": {}
+    "D:\\Games\\GitHub\\Ohio\\Ohio\\WPFTestDesign.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gleb\\source\\repos\\WPFTestDesign\\WPFTestDesign.csproj": {
+    "D:\\Games\\GitHub\\Ohio\\Ohio\\WPFTestDesign.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gleb\\source\\repos\\WPFTestDesign\\WPFTestDesign.csproj",
+        "projectUniqueName": "D:\\Games\\GitHub\\Ohio\\Ohio\\WPFTestDesign.csproj",
         "projectName": "WPFTestDesign",
-        "projectPath": "C:\\Users\\Gleb\\source\\repos\\WPFTestDesign\\WPFTestDesign.csproj",
+        "projectPath": "D:\\Games\\GitHub\\Ohio\\Ohio\\WPFTestDesign.csproj",
         "packagesPath": "C:\\Users\\Gleb\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gleb\\source\\repos\\WPFTestDesign\\obj\\",
+        "outputPath": "D:\\Games\\GitHub\\Ohio\\Ohio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Gleb\\AppData\\Roaming\\NuGet\\NuGet.Config",
