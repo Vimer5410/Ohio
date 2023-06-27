@@ -178,6 +178,5 @@ public partial class MainWindow : Window
 var uri = new Uri(@"WhiteThemes.xaml", UriKind.Relative);
 ResourceDictionary resourceDictionary = Application.LoadComponent(uri) as ResourceDictionary;
 Application.Current.Resources.Clear();
-Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
-Process.Start(new ProcessStartInfo("https://github.com/Vimer5410/Ohio/tree/main") { UseShellExecute = true });
+Application.Current.Resources.MergedDictionaries.Add(resourceDictionary)
 */
