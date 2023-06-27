@@ -15,6 +15,8 @@ using MaterialDesignThemes.Wpf;
 
 using WPFTestDesign.Models;
 using Ohio.InOut;
+using System;
+using System.Diagnostics;
 
 namespace WPFTestDesign;
 
@@ -27,7 +29,8 @@ public partial class MainWindow : Window
     
     public MainWindow()
     {
-        InitializeComponent();                 
+        InitializeComponent();
+
     }
 
     private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -73,8 +76,50 @@ public partial class MainWindow : Window
         }
 
     }
-    
-   
+    private void WhiteThemesButton_Click (object sender, RoutedEventArgs e)
+    {        
+        ButtonsBox.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FEE6DF");
+        NameBox.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#FEE6DF");
+        MainBox.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#E3E3E3");
+        DateColumnBox.Foreground = new SolidColorBrush(Colors.Black);
+        TaskColumnBox.Foreground = new SolidColorBrush(Colors.Black);
+
+        SettingsButton.Background= (SolidColorBrush)new BrushConverter().ConvertFrom("#E6643D");
+        SettingsButton.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#E6643D");
+        NotesButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#E6643D");
+        NotesButton.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#E6643D");
+        WhiteButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#E6643D");
+        WhiteButton.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#E6643D");
+        DarkButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#E6643D");
+        DarkButton.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#E6643D");
+        GitButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#E6643D");
+        GitButton.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#E6643D");
+
+    }
+    private void DarkThemesButton_Click(object sender, RoutedEventArgs e)
+    {
+        ButtonsBox.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#2a2a2a");
+        NameBox.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#2a2a2a");
+        MainBox.Background = new SolidColorBrush(Colors.Transparent);
+        DateColumnBox.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom("#e5e5e5"); 
+        TaskColumnBox.Foreground = (SolidColorBrush)new BrushConverter().ConvertFrom("#e5e5e5");
+
+        SettingsButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#606060");
+        SettingsButton.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#606060");
+        NotesButton.Background= (SolidColorBrush)new BrushConverter().ConvertFrom("#606060");
+        NotesButton.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#606060");
+        WhiteButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#606060");
+        WhiteButton.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#606060");
+        DarkButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#606060");
+        DarkButton.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#606060");
+        GitButton.Background = (SolidColorBrush)new BrushConverter().ConvertFrom("#606060");
+        GitButton.BorderBrush = (SolidColorBrush)new BrushConverter().ConvertFrom("#606060");
+    }
+    private void GitHubButton_Click(object sender, RoutedEventArgs e)
+    {
+        Process.Start(new ProcessStartInfo("https://github.com/Vimer5410/Ohio/tree/main") { UseShellExecute = true });
+    }
+
     private void ExitButton_Click(object sender, RoutedEventArgs e)
     {
         Main.Close();
@@ -113,8 +158,26 @@ public partial class MainWindow : Window
                 MessageBox.Show(ex.Message);
                 this.Close();
             }
-        }
-        
+        }       
     }
+    
+   
+    
 }
-
+/*
+ * SetPrimaryColor(Colors.Red);
+ *  private static void SetPrimaryColor(Color color)
+    {
+        PaletteHelper paletteHelper = new PaletteHelper();
+        var theme=paletteHelper.GetTheme();
+        theme.SetPrimaryColor(color);
+        paletteHelper.SetTheme(theme);
+    }
+ <materialDesign:BundledTheme BaseTheme="Inherit" PrimaryColor="Yellow" SecondaryColor="Red"
+                                             ColorAdjustment = "{materialDesign:ColorAdjustment}" />
+var uri = new Uri(@"WhiteThemes.xaml", UriKind.Relative);
+ResourceDictionary resourceDictionary = Application.LoadComponent(uri) as ResourceDictionary;
+Application.Current.Resources.Clear();
+Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
+Process.Start(new ProcessStartInfo("https://github.com/Vimer5410/Ohio/tree/main") { UseShellExecute = true });
+*/

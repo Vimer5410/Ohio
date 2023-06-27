@@ -13,9 +13,9 @@
         Title="Ohio" Height="450" Width="800"
         x:Name="Main" Loaded="Main_Loaded">
 
-    <Border CornerRadius="10" Background="#1E1E1E" MouseDown="Window_MouseDown">
-        
-        <Grid>
+    <Border Background="#1E1E1E" MouseDown="Window_MouseDown">
+
+        <Grid x:Name="MainBox">
 
 
             <Grid.ColumnDefinitions>
@@ -28,16 +28,24 @@
                 <RowDefinition Height="410"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Column="0" Grid.Row="0" Background="#2a2a2a">
-                <TextBlock Text="V-0.0.2" Foreground="#a37cb3"></TextBlock>
-                <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontFamily="Arial Black" Foreground="#037e82" FontSize="25">Ohio</TextBlock>
+            <StackPanel x:Name="NameBox"  Grid.Column="0" Grid.Row="0" Background="#2a2a2a">
+                
+                <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Center" FontFamily="Arial Black" Text="Ohio" FontSize="27">
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush>
+                            <GradientStop Color="Cyan" Offset="0"/>
+                            <GradientStop Color="#971cc9" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
             </StackPanel>
 
 
 
-            <StackPanel Grid.Column="0" Grid.Row="1" Background="#2a2a2a" >
-                <Button x:Name="NotesButton" Click="NotesButton_Click" Margin="10,30,10,0" Content="notes" Background="#606060" BorderBrush="#606060"></Button>
+            <StackPanel x:Name="ButtonsBox"  Grid.Column="0" Grid.Row="1" Background="#2a2a2a" >
+                <Button x:Name="NotesButton"  Click="NotesButton_Click" Margin="10,30,10,0" Content="notes" Background="#606060" BorderBrush="#606060"></Button>
                 <Button x:Name="SettingsButton" Click="SettingsButton_Click" Margin="10,10,10,0" Content="settings" Background="#606060" BorderBrush="#606060"/>
+                <Button x:Name="GitButton" Content="GitHub" Margin="10,200,10,0" FontSize="18" Click="GitHubButton_Click"  Background="#606060" BorderBrush="#606060"   />
             </StackPanel>
 
             <Grid Grid.Column="1" Grid.Row="0" Background="Transparent" Margin="607,0,0,0">
@@ -45,11 +53,11 @@
                 <Button x:Name="ExitButton" Click="ExitButton_Click" Margin="20,10,10,-2" Opacity="0"  BorderBrush="#606060"/>
             </Grid>
 
-           
 
-            <Grid x:Name="NotesBox" Visibility="Hidden" Grid.Column="1" Grid.Row="1">
+
+            <Grid x:Name="NotesBox" Visibility="Visible" Grid.Column="1" Grid.Row="1">
                 <DataGrid x:Name="Notesdg" MinRowHeight="30" FontWeight="Bold" Foreground="#e5e5e5" Background="Transparent" FontSize="15" Margin="10" AutoGenerateColumns="False">
-                    
+
                     <DataGrid.CellStyle>
                         <Style TargetType="DataGridCell">
                             <Style.Triggers>
@@ -58,12 +66,12 @@
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
-                        
+
                     </DataGrid.CellStyle>
                     <DataGrid.Columns>
-                        
-                        
-                        <DataGridTextColumn Binding="{Binding Path=CreationDate}" Header="Date" Width="170" IsReadOnly="True">
+
+
+                        <DataGridTextColumn x:Name="DateColumnBox" Binding="{Binding Path=CreationDate}" Header="Date" Width="170" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style>
                                     <Setter Property="FrameworkElement.VerticalAlignment" Value="Bottom"/>
@@ -89,7 +97,7 @@
                         </DataGridCheckBoxColumn>
 
 
-                        <DataGridTextColumn Binding="{Binding Path=Text}" Foreground="#e5e5e5" Header="Task" Width="*" IsReadOnly="False">
+                        <DataGridTextColumn x:Name="TaskColumnBox" Binding="{Binding Path=Text}" Foreground="#e5e5e5" Header="Task" Width="*" IsReadOnly="False">
                             <DataGridTextColumn.ElementStyle>
                                 <Style>
                                     <Setter Property="FrameworkElement.VerticalAlignment" Value="Bottom"/>
@@ -102,17 +110,20 @@
                                 </Style>
                             </DataGridTextColumn.HeaderStyle>
                         </DataGridTextColumn>
-                        
-                        
+
+
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
-            <WrapPanel x:Name="SettingsBox" Visibility="Hidden" Grid.Column="1" Grid.Row="1" Margin="100,100,100,100">
-                <TextBox FontSize="30">222</TextBox>
+            <WrapPanel x:Name="SettingsBox" Visibility="Hidden" Grid.Column="1" Grid.Row="1">
+                <TextBlock Text="Themes:" Margin="80,53,30,100" Foreground="#037e82" FontFamily="Arial Black"  FontSize="25"/>
+                <Button x:Name="WhiteButton" Content="white theme" Margin="240,50,0,100" FontSize="18" Click="WhiteThemesButton_Click"  Background="#606060" BorderBrush="#606060"  />
+                <Button x:Name="DarkButton" Content="dark theme" Margin="280,-132,0,100" FontSize="18" Click="DarkThemesButton_Click"  Background="#606060" BorderBrush="#606060"  />
+               
             </WrapPanel>
         </Grid>
     </Border>
-    
+
 </Window>
  
     
